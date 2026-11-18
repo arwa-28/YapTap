@@ -1,0 +1,102 @@
+/* ==========================================================
+    YapTap shared theme
+    Loaded by both the popup and the recording page.
+    Change a colour here and it updates everywhere.
+   ========================================================== */
+
+:root {
+    /* Brand palette (from the design sheet) */
+    --yt-blue:        #397CB8;   /* Primary Blue  */
+    --yt-blue-hover:  #2F6AA0;
+    --yt-bg:          #F4F8FC;   /* Background    */
+    --yt-navy:        #193B61;   /* Dark Navy     */
+    --yt-yellow:      #FFD25F;   /* Accent Yellow */
+
+    /* Supporting tones */
+    --yt-text-muted:  #5F7D9C;
+    --yt-surface:     #FBFDFF;   /* cards / panels */
+    --yt-panel:       #E4EEF9;   /* preview area   */
+    --yt-line:        #DCE7F3;   /* borders        */
+    --yt-line-strong: #A9C0DA;   /* checkbox ring  */
+
+    /* Shape + depth */
+    --yt-radius-lg: 22px;
+    --yt-radius-md: 16px;
+    --yt-radius-sm: 14px;
+    --yt-shadow-card: 0 12px 32px rgba(25, 59, 97, 0.09);
+    --yt-shadow-btn:  0 6px 14px rgba(57, 124, 184, 0.28);
+
+    --yt-font: "Nunito", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Optional: bundle the rounded font from the design.
+    Download Nunito (free, Google Fonts), put the file at
+   extension/fonts/Nunito.woff2, then un-comment: */
+/*
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/Nunito.woff2") format("woff2");
+    font-weight: 400 900;
+    font-display: swap;
+}
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--yt-font);
+    background-color: var(--yt-bg);
+    color: var(--yt-navy);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Primary button used on both pages */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border: none;
+    border-radius: var(--yt-radius-sm);
+    background: linear-gradient(180deg, #4189C7 0%, var(--yt-blue) 100%);
+    color: #FFFFFF;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--yt-shadow-btn);
+
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--yt-blue-hover);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.btn-primary svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+:focus-visible {
+    outline: 3px solid rgba(57, 124, 184, 0.45);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

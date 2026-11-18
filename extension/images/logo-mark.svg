@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs>
+  <linearGradient id="gy" x1="0" y1="90" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#5BA5FF"/><stop offset="1" stop-color="#2A67D1"/></linearGradient>
+  <linearGradient id="gt" x1="0" y1="110" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FFE680"/><stop offset=".45" stop-color="#FFC93C"/><stop offset="1" stop-color="#F6A81E"/></linearGradient>
+  <filter id="sh" filterUnits="userSpaceOnUse" x="-40" y="-40" width="600" height="620">
+    <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#12337A" flood-opacity=".28"/></filter>
+</defs>
+<g filter="url(#sh)" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <path d="M108 146 L198 258 L286 128 M198 258 L180 386" stroke="#12337A" stroke-width="114"/>
+  <path d="M108 146 L198 258 L286 128 M198 258 L180 386" stroke="url(#gy)" stroke-width="84"/>
+  <path d="M92 138 L190 250" stroke="#fff" stroke-opacity=".42" stroke-width="13" transform="translate(-4,-6)"/>
+  <path d="M300 206 L432 190 M368 198 L348 398" stroke="#12337A" stroke-width="106"/>
+  <path d="M300 206 L432 190 M368 198 L348 398" stroke="url(#gt)" stroke-width="76"/>
+  <path d="M300 196 L424 180" stroke="#fff" stroke-opacity=".5" stroke-width="12" transform="translate(0,-2)"/>
+</g>
+<g stroke="#2A67D1" stroke-width="13" stroke-linecap="round" fill="none">
+  <path d="M372 56 L380 34"/><path d="M404 72 L424 56"/><path d="M424 106 L448 102"/></g></svg>

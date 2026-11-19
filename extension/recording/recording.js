@@ -1,4 +1,5 @@
 const startRecordingBtn = document.getElementById('start-recording');
+const pauseRecordingBtn = document.getElementById('pause-recording');
 const stopRecordingBtn = document.getElementById('stop-recording');
 const recordScreen = document.getElementById('record-screen');
 const recordMicrophone = document.getElementById('record-microphone');
@@ -10,6 +11,9 @@ let mediaRecorder = null;
 let recordedChunks = [];
 let mediaStream = null;
 let isRecording = false;
+
+pauseRecordingBtn.hidden = true;
+stopRecordingBtn.disabled = true;
 
 
 // 1. Setup the media streams
@@ -60,7 +64,7 @@ async function streamSetup(options) {
 }
 
 
-// 2. Update the preview placeholder
+// Update the preview placeholder
 function resetPreview() {
     video.srcObject = null;
     video.hidden = true;
@@ -73,8 +77,23 @@ function resetPreview() {
 }
 
 
-// 3. Start recording
+// Start recording
 async function startRecording() {
+    // Resume recording if it was paused
+    if (mediaRecorder?.state === 'paused') {
+        mediaRecorder.resume();
+
+        startRecordingBtn.hidden = true;
+        startRecordingBtn.disabled = false;
+        pauseRecordingBtn.hidden = false;
+        pauseRecordingBtn.disabled = false;
+
+        status.textContent = 'Recording...';
+        startRecordingBtn.textContent = 'Start Recording';
+        document.body.dataset.state = 'recording';
+        return;
+    }
+
     if (isRecording || mediaStream) return;
 
     const options = {
@@ -141,6 +160,8 @@ async function startRecording() {
 
         isRecording = true;
 
+        startRecordingBtn.hidden = true;
+        pauseRecordingBtn.hidden = false;
         stopRecordingBtn.disabled = false;
         recordScreen.disabled = true;
         recordMicrophone.disabled = true;
@@ -167,8 +188,23 @@ async function startRecording() {
     }
 }
 
+// Pause recording
+async function pauseRecording() {
+    if (mediaRecorder?.state === 'recording') {
+        mediaRecorder.pause();
 
-// 4. Stop recording
+        pauseRecordingBtn.hidden = true;
+
+        startRecordingBtn.hidden = false;
+        startRecordingBtn.disabled = false;
+        startRecordingBtn.textContent = 'Resume Recording';
+
+        document.body.dataset.state = 'paused';
+        status.textContent = 'Paused';
+    }
+};
+
+// Stop recording
 function stopRecording() {
     if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
 
@@ -182,7 +218,7 @@ function stopRecording() {
 }
 
 
-// 5. Save the recorded file
+// Save the recorded file
 function saveRecording() {
     const mimeType = mediaRecorder.mimeType || 'video/webm';
 
@@ -221,7 +257,7 @@ function saveRecording() {
 }
 
 
-// 6. Cleanup
+// Cleanup
 function cleanup() {
     if (mediaStream) {
         mediaStream.getTracks().forEach(track => track.stop());
@@ -234,10 +270,15 @@ function cleanup() {
     recordedChunks = [];
     isRecording = false;
 
+    startRecordingBtn.hidden = false;
+    startRecordingBtn.textContent = 'Start Recording';
+    pauseRecordingBtn.hidden = true;
+
     document.body.dataset.state = 'idle';
 }
 
 
-// 7. Button events
+// Button events
 startRecordingBtn.addEventListener('click', startRecording);
+pauseRecordingBtn.addEventListener('click', pauseRecording);
 stopRecordingBtn.addEventListener('click', stopRecording);

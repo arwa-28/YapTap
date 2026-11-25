@@ -29,17 +29,14 @@
     --yt-font: "Nunito", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Optional: bundle the rounded font from the design.
-    Download Nunito (free, Google Fonts), put the file at
-   extension/fonts/Nunito.woff2, then un-comment: */
-/*
+
 @font-face {
     font-family: "Nunito";
     src: url("../fonts/Nunito.woff2") format("woff2");
     font-weight: 400 900;
     font-display: swap;
 }
-*/
+
 
 * {
     box-sizing: border-box;

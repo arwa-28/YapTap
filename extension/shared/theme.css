@@ -32,7 +32,7 @@
 
 @font-face {
     font-family: "Nunito";
-    src: url("../fonts/Nunito.woff2") format("woff2");
+    src: url("../fonts/Nunito.ttf") format("truetype");
     font-weight: 400 900;
     font-display: swap;
 }

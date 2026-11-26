@@ -76,7 +76,7 @@ extension/
 ├── shared/
 │   └── theme.css          Palette, font, reset and shared button styles
 ├── fonts/
-│   └── Nunito.woff2       Bundled font
+│   └── Nunito.ttf       Bundled font
 ├── icons/                 Extension icons (16, 32, 48, 128 px)
 └── images/                Logo files (SVG + PNG): full, stacked and mark only
 docs/
@@ -119,7 +119,7 @@ The look comes from `shared/theme.css`. Change a variable there and both pages u
 | `--yt-navy` | `#193B61` | Text, Stop button while recording, countdown overlay |
 | `--yt-yellow` | `#FFD25F` | Accent, the live recording dot, center of the visualizer |
 
-**Font:** the design uses Nunito, a rounded sans-serif. It is bundled at `extension/fonts/Nunito.woff2` and loaded by the `@font-face` block in `shared/theme.css`. If the file is missing, the UI falls back to your system font.
+**Font:** the design uses Nunito, a rounded sans-serif. It is bundled at `extension/fonts/Nunito.ttf` and loaded by the `@font-face` block in `shared/theme.css`. If the file is missing, the UI falls back to your system font.
 
 **Recording state:** `recording.js` sets `document.body.dataset.state` to one of the values below. The CSS uses it to show the pulsing yellow dot, the navy Stop button and the timer colour, so you can style new states without touching the logic.
 

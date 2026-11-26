@@ -80,7 +80,8 @@ extension/
 ├── icons/                 Extension icons (16, 32, 48, 128 px)
 └── images/                Logo files (SVG + PNG): full, stacked and mark only
 docs/
-└── preview.png            Screenshot used in this README
+└── preview.png            Screenshots used in this README
+└── preview-recording.png           
 ```
 
 ## How it works
